@@ -9,7 +9,7 @@
 
 [node name="ModInfoContainer" type="PanelContainer"]
 unique_name_in_owner = true
-modulate = Color( 1, 1, 1, 0.788235 )
+self_modulate = Color( 1, 1, 1, 0.823529 )
 anchor_left = 0.454
 anchor_right = 0.896
 anchor_bottom = 0.463

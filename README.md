@@ -7,7 +7,7 @@ Modifies the in game mod menu to provide more information
 
 ## Showcase
 <p align="center"> 
-    <img src="https://i.imgur.com/cJpvB0m.png" height="350" style="object-fit:scale-down;"/>
+    <img src="https://github.com/otDan/Brotato-BetterModList/blob/master/.publish/showcase.png?raw=true" height="350" style="object-fit:scale-down;"/>
 </p>
 
 <!-- ## Installation
