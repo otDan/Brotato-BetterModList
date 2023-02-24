@@ -27,28 +27,33 @@ func set_data(mod:ModData)->void:
 	_mod_version.text = mod.manifest.version_number
 	_mod_description.bbcode_text = mod.manifest.description
 
+	var missing_dependency: bool = false
 	if not PoolStringArray(mod.manifest.dependencies).empty():
 		var dependencies: PoolStringArray
+
 		for dependency in mod.manifest.dependencies:
 			var string_dependency: String
 
 			if ModLoader.mod_data.has(dependency):
-				mod_style.bg_color = Color(Colors.loaded)
 				string_dependency += "[color=" + Colors.loaded + "]"
 				string_dependency += str(dependency)
 				string_dependency += "[/color]"
 			else:
-				mod_style.bg_color = Color(Colors.unloaded)
-#				add_stylebox_override("mod_color", style)
 				string_dependency += "[color=" + Colors.unloaded + "]"
 				string_dependency += str(dependency)
 				string_dependency += "[/color]"
-
+				missing_dependency = true
 			dependencies.append(string_dependency)
+
 		_mod_dependencies.bbcode_text = str(dependencies)
 		_mod_dependency_container.visible = true
 	else:
 		_mod_dependency_container.visible = false
+
+	if missing_dependency:
+			mod_style.bg_color = Color(Colors.unloaded)
+	else:
+		mod_style.bg_color = Color(Colors.loaded)
 
 func set_empty()->void:
 	_mod_name.text = ""
@@ -58,7 +63,6 @@ func set_empty()->void:
 	_mod_description.bbcode_text = ""
 	_mod_dependencies.text = ""
 	_mod_dependency_container.visible = false
-
 
 func _on_ModWebsite_meta_clicked(meta):
 	OS.shell_open(meta)
