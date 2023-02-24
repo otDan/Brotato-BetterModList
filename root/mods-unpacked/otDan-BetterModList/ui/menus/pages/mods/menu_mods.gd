@@ -18,16 +18,21 @@ func init()->void :
 		_mod_list_container.remove_child(n)
 		n.queue_free()
 
-	var mod_count = 0
+	var loaded_mod_count = 0
+	var error_mod_count = 0
 	for key in ModLoader.mod_data:
 		var instance = mod_container_scene.instance()
 		_mod_list_container.add_child(instance)
 		instance.set_data(ModLoader.mod_data[key])
 		var _error = instance.connect("mod_focused", self, "on_mod_focused")
 		var _error_2 = instance.connect("mod_unfocused", self, "on_mod_unfocused")
-		mod_count += 1
 
-	_mod_count_label.text = "Loaded: " + str(mod_count)
+		if ModLoader.mod_data[key].is_loadable:
+			loaded_mod_count += 1
+		else:
+			error_mod_count += 1
+
+	_mod_count_label.text = "Loaded: " + str(loaded_mod_count)
 
 func on_mod_focused(mod:ModData)->void :
 	_mod_info_container.set_data(mod)

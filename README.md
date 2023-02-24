@@ -3,14 +3,12 @@
 # BetterModList for [Brotato](https://store.steampowered.com/app/1942280/Brotato/)
 
 Modifies the in game mod menu to provide more information
+- Built for the [GodotModLoader](https://github.com/GodotModding/godot-mod-loader)
 
 ## Showcase
 <p align="center"> 
     <img src="https://i.imgur.com/cJpvB0m.png" height="350" style="object-fit:scale-down;"/>
 </p>
-
-Built For:
-- [GodotModLoader](https://github.com/GodotModding/godot-mod-loader)
 
 <!-- ## Installation
 
