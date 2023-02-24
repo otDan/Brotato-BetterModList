@@ -10,7 +10,7 @@ func _init(modLoader = ModLoader):
 
 	_add_child_classes()
 
-	modLoader.install_script_extension(dir + "/extensions/ui/menus/title_screen/title_screen_menus.gd")
+	modLoader.install_script_extension(dir + "extensions/ui/menus/title_screen/title_screen_menus.gd")
 
 	modLoader.add_translation_from_resource(dir + "modlist_translation.en.translation")
 
