@@ -77,7 +77,8 @@ align = 2
 valign = 1
 autowrap = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ModWebsite" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_top = 49.0
 margin_right = 794.0
 margin_bottom = 75.0
@@ -146,3 +147,5 @@ margin_right = 838.0
 margin_bottom = 534.0
 custom_fonts/font = ExtResource( 1 )
 text = "MOD_CONFIG"
+
+[connection signal="meta_clicked" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ModWebsite" to="." method="_on_ModWebsite_meta_clicked"]
