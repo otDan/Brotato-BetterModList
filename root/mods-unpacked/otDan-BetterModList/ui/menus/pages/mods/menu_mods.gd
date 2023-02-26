@@ -15,7 +15,10 @@ onready var _back_button = $"%BackButton"
 onready var _mod_loaded_count_label = $"%LoadedModCount"
 onready var _mod_disabled_count_label = $"%DisabledModCount"
 
-func init()->void:
+func init():
+	pass
+
+func _ready()->void:
 	_back_button.grab_focus()
 
 	for n in _mod_list_container.get_children():
