@@ -16,7 +16,7 @@ func _ready():
 	mod_style = style.duplicate()
 	add_stylebox_override("panel", mod_style)
 
-func set_data(p_mod:ModData)->void :
+func set_data(p_mod:ModData)->void:
 	mod_data = p_mod
 	var mod_name: String
 	if mod_data.is_loadable:
@@ -32,13 +32,13 @@ func set_data(p_mod:ModData)->void :
 	_mod_name.bbcode_text = mod_name
 
 
-func _on_ModName_focus_entered()->void :
+func _on_ModName_focus_entered()->void:
 	emit_signal("mod_focused", mod_data)
 
 
-func _on_ModName_mouse_entered()->void :
+func _on_ModName_mouse_entered()->void:
 	emit_signal("mod_focused", mod_data)
 
 
-func _on_ModName_focus_exited()->void :
+func _on_ModName_focus_exited()->void:
 	emit_signal("mod_unfocused", mod_data)

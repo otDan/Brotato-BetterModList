@@ -29,6 +29,7 @@ func init()->void:
 		var instance = mod_container_scene.instance()
 		_mod_list_container.add_child(instance)
 		var mod_data = ModLoader.mod_data[mod]
+		instance.name = mod_data.manifest.name
 		instance.set_data(mod_data)
 		var _error = instance.connect("mod_focused", self, "on_mod_focused")
 		var _error_2 = instance.connect("mod_unfocused", self, "on_mod_unfocused")
@@ -51,6 +52,26 @@ func init()->void:
 
 	_mod_loaded_count_label.text = "Loaded: " + str(loaded_mod_count)
 	_mod_disabled_count_label.text = "Disabled: " + str(error_mod_count)
+
+	sort_nodes()
+
+class AlphabeticalSorter:
+	func sort(a, b):
+		return a.name < b.name
+
+	func reverse_sort(a, b):
+		return a.name > b.name
+
+func sort_nodes():
+	var sorter = AlphabeticalSorter.new()
+	var children = _mod_list_container.get_children()
+
+	children.sort_custom(sorter, "sort")
+
+	for child in children:
+		_mod_list_container.remove_child(child)
+		_mod_list_container.add_child(child)
+
 
 func on_mod_focused(mod:ModData)->void:
 	_mod_info_container.set_data(mod)
