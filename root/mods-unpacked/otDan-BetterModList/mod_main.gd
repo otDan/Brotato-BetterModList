@@ -19,6 +19,6 @@ func _ready():
 	ModLoaderUtils.log_success("Loaded", MOD_NAME)
 
 func _add_child_classes():
-	var Colors = load(dir + "static/colors.gd").new()
+	var Colors = load(dir + "global/colors.gd").new()
 	Colors.name = "Colors"
 	add_child(Colors)

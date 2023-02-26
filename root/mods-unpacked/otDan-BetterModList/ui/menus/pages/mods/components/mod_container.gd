@@ -20,15 +20,13 @@ func set_data(p_mod:ModData)->void:
 	mod_data = p_mod
 	var mod_name: String
 	if mod_data.is_loadable:
-		mod_name += "[color=" + Colors.loaded + "]"
-		mod_name += str(mod_data.manifest.name)
-		mod_name += "[/color]"
 		mod_style.bg_color = Color(Colors.loaded)
+		mod_name += "[color=" + Colors.loaded + "]"
 	else:
-		mod_name += "[color=" + Colors.unloaded + "]"
-		mod_name += str(mod_data.manifest.name)
-		mod_name += "[/color]"
 		mod_style.bg_color = Color(Colors.unloaded)
+		mod_name += "[color=" + Colors.unloaded + "]"
+	mod_name += str(mod_data.manifest.name)
+	mod_name += "[/color]"
 	_mod_name.bbcode_text = mod_name
 
 

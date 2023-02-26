@@ -44,29 +44,25 @@ func init()->void:
 		else:
 			error_mod_count += 1
 
+	add_authors()
+
+	_mod_loaded_count_label.text = "Loaded: " + str(loaded_mod_count)
+	_mod_disabled_count_label.text = "Disabled: " + str(error_mod_count)
+
+	sort_nodes("sort")
+
+func add_authors():
 	for author in authors_dictionary:
 		var instance = mod_author_toggle.instance()
 		instance.name = author
 		instance.connect("author_toggled", self, "on_author_toggled")
 		_author_container.add_child(instance)
 
-	_mod_loaded_count_label.text = "Loaded: " + str(loaded_mod_count)
-	_mod_disabled_count_label.text = "Disabled: " + str(error_mod_count)
-
-	sort_nodes()
-
-class AlphabeticalSorter:
-	func sort(a, b):
-		return a.name < b.name
-
-	func reverse_sort(a, b):
-		return a.name > b.name
-
-func sort_nodes():
-	var sorter = AlphabeticalSorter.new()
+func sort_nodes(sort_type: String):
+	var sorter = NodeSorter.new()
 	var children = _mod_list_container.get_children()
 
-	children.sort_custom(sorter, "sort")
+	children.sort_custom(sorter, sort_type)
 
 	for child in children:
 		_mod_list_container.remove_child(child)

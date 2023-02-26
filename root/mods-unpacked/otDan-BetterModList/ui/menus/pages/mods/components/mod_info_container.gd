@@ -36,13 +36,12 @@ func set_data(mod:ModData)->void:
 
 			if ModLoader.mod_data.has(dependency):
 				string_dependency += "[color=" + Colors.loaded + "]"
-				string_dependency += str(dependency)
-				string_dependency += "[/color]"
 			else:
-				string_dependency += "[color=" + Colors.unloaded + "]"
-				string_dependency += str(dependency)
-				string_dependency += "[/color]"
 				missing_dependency = true
+				string_dependency += "[color=" + Colors.unloaded + "]"
+
+			string_dependency += str(dependency)
+			string_dependency += "[/color]"
 			dependencies.append(string_dependency)
 
 		_mod_dependencies.bbcode_text = str(dependencies)
