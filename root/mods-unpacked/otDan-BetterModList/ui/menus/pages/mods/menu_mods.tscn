@@ -78,6 +78,7 @@ margin_top = 49.0
 margin_right = 448.0
 margin_bottom = 94.0
 size_flags_vertical = 5
+custom_colors/font_color = Color( 0.768627, 0.317647, 0.317647, 1 )
 text = "DISABLED_MOD_COUNT"
 align = 1
 valign = 1
