@@ -1,4 +1,4 @@
-extends CheckButton
+extends CheckBox
 
 signal author_toggled(author, state)
 
