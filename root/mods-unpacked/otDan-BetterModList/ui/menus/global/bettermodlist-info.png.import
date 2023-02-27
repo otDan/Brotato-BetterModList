@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/check_box_off.png-c866265a844d63ed361b3d576585cb2b.stex"
+path="res://.import/bettermodlist-info.png-f065c2de866552f8375b29a31105109d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mods-unpacked/otDan-BetterModList/ui/menus/global/check_box_off.png"
-dest_files=[ "res://.import/check_box_off.png-c866265a844d63ed361b3d576585cb2b.stex" ]
+source_file="res://mods-unpacked/otDan-BetterModList/ui/menus/global/bettermodlist-info.png"
+dest_files=[ "res://.import/bettermodlist-info.png-f065c2de866552f8375b29a31105109d.stex" ]
 
 [params]
 

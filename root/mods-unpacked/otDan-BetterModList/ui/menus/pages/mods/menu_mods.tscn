@@ -8,8 +8,8 @@
 [ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/components/mod_container.tscn" type="PackedScene" id=6]
 [ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/components/author_toggle.tscn" type="PackedScene" id=7]
 [ext_resource path="res://resources/fonts/actual/base/font_menus.tres" type="DynamicFont" id=8]
-[ext_resource path="res://mods-unpacked/otDan-BetterModList/resources/themes/mod_menu_theme.theme" type="Theme" id=9]
-[ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/global/info.png" type="Texture" id=10]
+[ext_resource path="res://mods-unpacked/otDan-BetterModList/resources/themes/bettermodlist-mod_menu_theme.theme" type="Theme" id=9]
+[ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/global/bettermodlist-info.png" type="Texture" id=10]
 
 [node name="BetterMenuMods" type="MarginContainer"]
 anchor_right = 1.0

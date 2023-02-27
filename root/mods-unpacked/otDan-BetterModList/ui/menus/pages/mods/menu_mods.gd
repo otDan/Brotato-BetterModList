@@ -62,7 +62,7 @@ func add_authors():
 		_author_container.add_child(instance)
 
 func sort_nodes(sort_type: String):
-	var sorter = NodeSorter.new()
+	var sorter = load("res://mods-unpacked/otDan-BetterModList/global/node_sorter.gd").new()
 	var children = _mod_list_container.get_children()
 
 	children.sort_custom(sorter, sort_type)
