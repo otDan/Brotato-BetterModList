@@ -24,7 +24,7 @@ func set_data(mod:ModData)->void:
 	_mod_name.text = mod.manifest.name
 	_mod_author.text = str(mod.manifest.authors)
 	_mod_website.bbcode_text = "[color=" + Colors.interactive + "][url]" + mod.manifest.website_url + "[/url][/color]"
-	_mod_version.text = mod.manifest.version_number
+	_mod_version.text = "v" + mod.manifest.version_number
 	_mod_description.bbcode_text = mod.manifest.description
 
 	var missing_dependency: bool = false
