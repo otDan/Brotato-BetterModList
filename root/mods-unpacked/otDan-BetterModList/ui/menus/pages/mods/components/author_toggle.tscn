@@ -9,9 +9,6 @@
 margin_right = 318.0
 margin_bottom = 70.0
 theme = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 custom_constants/hseparation = 28
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover_pressed = ExtResource( 4 )
