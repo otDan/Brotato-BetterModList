@@ -155,6 +155,7 @@ margin_right = 321.0
 margin_bottom = 619.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+follow_focus = true
 scroll_horizontal_enabled = false
 
 [node name="AuthorContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/AuthorPanel/MarginContainer/VBoxContainer/ScrollContainer"]
@@ -190,6 +191,7 @@ margin_right = 698.0
 margin_bottom = 627.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+follow_focus = true
 scroll_horizontal_enabled = false
 
 [node name="ModListContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ModPanel/MarginContainer/ScrollContainer"]
