@@ -11,16 +11,18 @@ var authors_dictionary: Dictionary
 onready var _author_container = $"%AuthorContainer"
 onready var _mod_list_container = $"%ModListContainer"
 onready var _mod_info_container = $"%ModInfoContainer"
-onready var _back_button = $"%BackButton"
+
 onready var _mod_loaded_count_label = $"%LoadedModCount"
 onready var _mod_disabled_count_label = $"%DisabledModCount"
 
+onready var _workshop_button = $"%WorkshopButton"
+onready var _back_button = $"%BackButton"
+
 func init():
+	_back_button.grab_focus()
 	pass
 
 func _ready()->void:
-	_back_button.grab_focus()
-
 	for n in _mod_list_container.get_children():
 		_mod_list_container.remove_child(n)
 		n.queue_free()
@@ -28,8 +30,10 @@ func _ready()->void:
 	var loaded_mod_count = 0
 	var error_mod_count = 0
 
+	var first_mod: Button = null
+	var last_mod: Button = null
 	for mod in ModLoader.mod_data:
-		var instance = mod_container_scene.instance()
+		var instance: PanelContainer = mod_container_scene.instance()
 		_mod_list_container.add_child(instance)
 		var mod_data = ModLoader.mod_data[mod]
 		instance.name = mod_data.manifest.name
@@ -47,29 +51,55 @@ func _ready()->void:
 		else:
 			error_mod_count += 1
 
+		var mod_name_button: Button = instance.get_node("%ModNameButton")
+		mod_name_button.focus_neighbour_right = _back_button.get_path()
+		if not last_mod == null:
+			last_mod.focus_neighbour_bottom = mod_name_button.get_path()
+			mod_name_button.focus_neighbour_top = last_mod.get_path()
+		if first_mod == null:
+			first_mod = mod_name_button
+		last_mod = mod_name_button
+	last_mod.focus_neighbour_bottom = first_mod.get_path()
+	first_mod.focus_neighbour_top = last_mod.get_path()
+	sort_nodes(_mod_info_container, "sort")
+	_back_button.focus_neighbour_left = _mod_info_container.get_child(0).get_path()
+	_workshop_button.focus_neighbour_left = _mod_info_container.get_child(0).get_path()
+
 	add_authors()
 
 	_mod_loaded_count_label.text = "Loaded: " + str(loaded_mod_count)
 	_mod_disabled_count_label.text = "Disabled: " + str(error_mod_count)
 
-	sort_nodes("sort")
-
 func add_authors():
+	var first_author: CheckBox = null
+	var last_author: CheckBox = null
 	for author in authors_dictionary:
-		var instance = mod_author_toggle.instance()
+		var instance: CheckBox = mod_author_toggle.instance()
 		instance.name = author
 		instance.connect("author_toggled", self, "on_author_toggled")
 		_author_container.add_child(instance)
 
-func sort_nodes(sort_type: String):
+		instance.focus_neighbour_left = _back_button.get_path()
+		if not last_author == null:
+			last_author.focus_neighbour_bottom = instance.get_path()
+			instance.focus_neighbour_top = last_author.get_path()
+		if first_author == null:
+			first_author = instance
+		last_author = instance
+	last_author.focus_neighbour_bottom = first_author.get_path()
+	first_author.focus_neighbour_top = last_author.get_path()
+	_back_button.focus_neighbour_right = first_author.get_path()
+	_workshop_button.focus_neighbour_right = first_author.get_path()
+
+func sort_nodes(node: Node, sort_type: String):
 	var sorter = load("res://mods-unpacked/otDan-BetterModList/global/node_sorter.gd").new()
-	var children = _mod_list_container.get_children()
+	var children = node.get_children()
 
 	children.sort_custom(sorter, sort_type)
 
 	for child in children:
-		_mod_list_container.remove_child(child)
-		_mod_list_container.add_child(child)
+		node.remove_child(child)
+		node.add_child(child)
 
 
 func on_mod_focused(mod:ModData)->void:

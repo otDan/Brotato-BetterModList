@@ -6,8 +6,7 @@
 [ext_resource path="res://mods-unpacked/otDan-BetterModList/resources/themes/parts/bettermodlist-checkbox_hover_pressed_styleboxflat.tres" type="StyleBox" id=4]
 
 [node name="AuthorToggle" type="CheckBox"]
-margin_right = 318.0
-margin_bottom = 70.0
+unique_name_in_owner = true
 theme = ExtResource( 3 )
 custom_constants/hseparation = 28
 custom_fonts/font = ExtResource( 1 )
