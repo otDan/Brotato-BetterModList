@@ -122,4 +122,6 @@ func _on_BackButton_pressed()->void:
 
 
 func _on_WorkshopButton_pressed()->void:
-	Steam.activateGameOverlayToWebPage("https://steamcommunity.com/app/1942280/workshop/")
+	if ClassDB.class_exists("Steam"):
+		var steam = ClassDB.instance("Steam")
+		steam.activateGameOverlayToWebPage("https://steamcommunity.com/app/1942280/workshop/")
