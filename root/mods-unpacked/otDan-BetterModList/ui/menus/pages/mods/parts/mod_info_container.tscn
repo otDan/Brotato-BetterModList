@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resources/fonts/actual/base/font_small_button.tres" type="DynamicFont" id=1]
-[ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/components/mod_info_container.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/parts/mod_info_container.gd" type="Script" id=2]
 [ext_resource path="res://resources/fonts/actual/base/font_smallest_text.tres" type="DynamicFont" id=3]
 [ext_resource path="res://resources/fonts/actual/base/font_menus.tres" type="DynamicFont" id=4]
 [ext_resource path="res://resources/fonts/actual/base/font_small_text.tres" type="DynamicFont" id=5]

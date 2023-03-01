@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://resources/themes/base_theme.tres" type="Theme" id=1]
-[ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/components/mod_container.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/parts/mod_container.gd" type="Script" id=2]
 
 [node name="ModContainer" type="PanelContainer"]
 margin_right = 807.0
