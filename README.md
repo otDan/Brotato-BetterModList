@@ -10,28 +10,28 @@ Modifies the in game mod menu to provide more information
     <img src="https://github.com/otDan/Brotato-BetterModList/blob/master/.publish/showcase.png?raw=true" height="350" style="object-fit:scale-down;"/>
 </p>
 
-<!-- ## Installation
+## Installation
 
-<a href="https://rounds.thunderstore.io/package/otDan/GameSaver">
-    <img align="right" src="https://badgen.net/https/git-hub-badge-data.npkn.net/thunderstore-downloads-request/GameSaver?icon=https://gcdn.thunderstore.io/static/ts/thunderstore-logomark-white.svg" hspace="50"/>
+<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2937057646">
+    <img align="right" src="https://badgen.net/https/ostaszewski29.npkn.net/py-steam-subscribers-request/2937057646?icon=https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" hspace="50"/>
 </a>
 
 - Steam Workshop: 
-  - https://rounds.thunderstore.io/package/otDan/GameSaver 
+  - https://steamcommunity.com/sharedfiles/filedetails/?id=2937057646 
 
-<a href="https://rounds.thunderstore.io/package/otDan/GameSaver">
-    <img align="right" src="https://badgen.net/https/git-hub-badge-data.npkn.net/thunderstore-downloads-request/GameSaver?icon=https://gcdn.thunderstore.io/static/ts/thunderstore-logomark-white.svg" hspace="50"/>
+<a href="https://thunderstore.io/c/brotato/p/otDan/BetterModList/">
+    <img align="right" src="https://badgen.net/https/git-hub-badge-data.npkn.net/thunderstore-downloads-request/brotato/BetterModList?icon=https://gcdn.thunderstore.io/static/ts/thunderstore-logomark-black.svg" hspace="50"/>
 </a>
 
 - Thunderstore: 
-  - https://rounds.thunderstore.io/package/otDan/GameSaver 
+  - https://thunderstore.io/c/brotato/p/otDan/BetterModList/
 
-<a href="https://github.com/otDan/GameSaver/releases">
-    <img align="right" src="https://badgen.net/github/assets-dl/otDan/GameSaver?icon=git&color=blue" hspace="50"/>
+<a href="https://github.com/otDan/Brotato-BetterModList/releases">
+    <img align="right" src="https://badgen.net/github/assets-dl/otDan/Brotato-BetterModList?icon=git&color=blue" hspace="50"/>
 </a> 
 
 - Manual: 
-  - https://github.com/otDan/GameSaver/releases -->
+  - https://github.com/otDan/Brotato-BetterModList/releases
 
 <p align="left"> 
     <a href="https://www.paypal.com/paypalme/otdan">
