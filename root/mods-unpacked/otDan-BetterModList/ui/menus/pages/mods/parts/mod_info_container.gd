@@ -23,7 +23,9 @@ func _ready()->void:
 func set_data(mod:ModData)->void:
 	_mod_name.text = mod.manifest.name
 	_mod_author.text = str(mod.manifest.authors)
-	var url = mod.manifest.website_url.replace("https://", "")
+	var url = mod.manifest.website_url
+	_mod_website.visible = url != ""
+	url = url.replace("https://", "")
 	_mod_website.bbcode_text = "[color=" + Colors.interactive + "][url]" + url + "[/url][/color]"
 	_mod_version.text = "v" + mod.manifest.version_number
 	_mod_description.bbcode_text = mod.manifest.description
