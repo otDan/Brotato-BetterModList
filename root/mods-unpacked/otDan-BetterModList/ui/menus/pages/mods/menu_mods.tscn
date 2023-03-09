@@ -225,6 +225,7 @@ __meta__ = {
 unique_name_in_owner = true
 margin_right = 600.0
 margin_bottom = 65.0
+focus_neighbour_top = NodePath("../BackButton")
 focus_neighbour_bottom = NodePath("../BackButton")
 text = "MENU_WORKSHOP"
 
@@ -234,6 +235,7 @@ margin_top = 80.0
 margin_right = 600.0
 margin_bottom = 145.0
 focus_neighbour_top = NodePath("../WorkshopButton")
+focus_neighbour_bottom = NodePath("../WorkshopButton")
 text = "MENU_BACK"
 
 [connection signal="pressed" from="VBoxContainer/Buttons/WorkshopButton" to="." method="_on_WorkshopButton_pressed"]
