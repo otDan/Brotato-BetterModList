@@ -61,7 +61,8 @@ func _ready()->void:
 		last_mod = mod_name_button
 	last_mod.focus_neighbour_bottom = first_mod.get_path()
 	first_mod.focus_neighbour_top = last_mod.get_path()
-	sort_nodes(_mod_info_container, "sort")
+	sort_nodes(_mod_list_container, "sort")
+
 	_back_button.focus_neighbour_left = _mod_info_container.get_child(0).get_path()
 	_workshop_button.focus_neighbour_left = _mod_info_container.get_child(0).get_path()
 
@@ -90,6 +91,7 @@ func add_authors():
 	first_author.focus_neighbour_top = last_author.get_path()
 	_back_button.focus_neighbour_right = first_author.get_path()
 	_workshop_button.focus_neighbour_right = first_author.get_path()
+
 
 func sort_nodes(node: Node, sort_type: String):
 	var sorter = load("res://mods-unpacked/otDan-BetterModList/global/node_sorter.gd").new()
