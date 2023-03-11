@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.en.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.it_IT.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.pl_PL.translation" ]
+
+source_file="res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.csv"
+dest_files=[ "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.en.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.it_IT.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.pl_PL.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

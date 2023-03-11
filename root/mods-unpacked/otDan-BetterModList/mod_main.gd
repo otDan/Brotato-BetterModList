@@ -1,22 +1,39 @@
 extends Node
 
+
 const MOD_NAME = "otDan-BetterModList"
 
+
+var mod_loader
 var dir = ""
+var ext_dir = ""
 
-func _init(modLoader = ModLoader):
+
+func _init(mod_loader = ModLoader):
 	ModLoaderUtils.log_info("Init", MOD_NAME)
-	dir = modLoader.UNPACKED_DIR + MOD_NAME + "/"
+	self.mod_loader = mod_loader
 
+	dir = mod_loader.UNPACKED_DIR + MOD_NAME + "/"
+	ext_dir = dir + "extensions/"
+
+	_install_translations()
+	_install_script_extensions()
 	_add_child_classes()
 
-	modLoader.install_script_extension(dir + "extensions/ui/menus/title_screen/title_screen_menus.gd")
-
-	modLoader.add_translation_from_resource(dir + "modlist_translation.en.translation")
 
 func _ready():
-	ModLoaderUtils.log_info("Readying", MOD_NAME)
 	ModLoaderUtils.log_success("Loaded", MOD_NAME)
+
+
+func _install_translations()->void:
+	mod_loader.add_translation_from_resource(dir + "bettermodlist-translation.en.translation") # English
+	mod_loader.add_translation_from_resource(dir + "bettermodlist-translation.it_IT.translation") # Italian
+	mod_loader.add_translation_from_resource(dir + "bettermodlist-translation.pl_PL.translation") # Polish
+
+
+func _install_script_extensions():
+	mod_loader.install_script_extension(dir + "extensions/ui/menus/title_screen/title_screen_menus.gd")
+
 
 func _add_child_classes():
 	var Colors = load(dir + "global/colors.gd").new()
