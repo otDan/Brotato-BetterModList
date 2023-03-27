@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.en.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.it_IT.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.pl_PL.translation" ]
+files=[ "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.en.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.it_IT.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.pl_PL.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.uk.translation" ]
 
 source_file="res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.csv"
-dest_files=[ "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.en.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.it_IT.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.pl_PL.translation" ]
+dest_files=[ "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.en.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.it_IT.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.pl_PL.translation", "res://mods-unpacked/otDan-BetterModList/translations/bettermodlist-translation.uk.translation" ]
 
 [params]
 
