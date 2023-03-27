@@ -31,6 +31,7 @@ func _install_translations()->void:
 	mod_loader.add_translation_from_resource(translations_dir + "bettermodlist-translation.en.translation") # English
 	mod_loader.add_translation_from_resource(translations_dir + "bettermodlist-translation.it_IT.translation") # Italian
 	mod_loader.add_translation_from_resource(translations_dir + "bettermodlist-translation.pl_PL.translation") # Polish
+	mod_loader.add_translation_from_resource(translations_dir + "bettermodlist-translation.uk.translation") # Ukrainian
 
 
 func _install_script_extensions():
