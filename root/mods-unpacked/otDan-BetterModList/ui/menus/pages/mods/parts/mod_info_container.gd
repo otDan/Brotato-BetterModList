@@ -60,7 +60,7 @@ func set_data(mod:ModData)->void:
 func set_empty()->void:
 	_mod_name.text = ""
 	_mod_author.text = ""
-	_mod_website.text = ""
+	_mod_website.bbcode_text = ""
 	_mod_version.text = ""
 	_mod_description.bbcode_text = ""
 	_mod_dependencies.text = ""
