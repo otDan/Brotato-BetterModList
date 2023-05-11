@@ -11,18 +11,18 @@ var authors_dictionary: Dictionary
 onready var _author_container = $"%AuthorContainer"
 onready var _mod_list_container = $"%ModListContainer"
 onready var _mod_info_container = $"%ModInfoContainer"
-
 onready var _mod_loaded_count_label = $"%LoadedModCount"
 onready var _mod_disabled_count_label = $"%DisabledModCount"
-
 onready var _workshop_button = $"%WorkshopButton"
 onready var _back_button = $"%BackButton"
+
 
 func init():
 	_back_button.grab_focus()
 	pass
 
-func _ready()->void:
+
+func _ready() -> void:
 	for n in _mod_list_container.get_children():
 		_mod_list_container.remove_child(n)
 		n.queue_free()
@@ -71,6 +71,7 @@ func _ready()->void:
 	_mod_loaded_count_label.text = "Loaded: " + str(loaded_mod_count)
 	_mod_disabled_count_label.text = "Disabled: " + str(error_mod_count)
 
+
 func add_authors():
 	var first_author: CheckBox = null
 	var last_author: CheckBox = null
@@ -104,26 +105,26 @@ func sort_nodes(node: Node, sort_type: String):
 		node.add_child(child)
 
 
-func on_mod_focused(mod:ModData)->void:
+func on_mod_focused(mod: ModData) -> void:
 	_mod_info_container.set_data(mod)
 
 
-func on_mod_unfocused(_mod:ModData)->void:
+func on_mod_unfocused(_mod: ModData) -> void:
 	_mod_info_container.set_empty()
 
 
-func on_author_toggled(author_check, state)->void:
+func on_author_toggled(author_check, state) -> void:
 	for author in authors_dictionary:
 		if author == author_check:
 			for mod in authors_dictionary[author]:
 				mod.visible = state
 
 
-func _on_BackButton_pressed()->void:
+func _on_BackButton_pressed() -> void:
 	emit_signal("back_button_pressed")
 
 
-func _on_WorkshopButton_pressed()->void:
+func _on_WorkshopButton_pressed() -> void:
 	if ClassDB.class_exists("Steam"):
 		var steam = ClassDB.instance("Steam")
 		steam.activateGameOverlayToWebPage("https://steamcommunity.com/app/1942280/workshop/")

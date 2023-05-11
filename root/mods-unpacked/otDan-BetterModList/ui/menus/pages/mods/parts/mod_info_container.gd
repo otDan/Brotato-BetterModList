@@ -1,6 +1,7 @@
 class_name CustomModInfoContainer
 extends PanelContainer
 
+onready var Colors = get_node("/root/ModLoader/otDan-BetterModList/Colors")
 onready var _mod_name = $"%ModName" as Label
 onready var _mod_author = $"%ModAuthor" as Label
 onready var _mod_website = $"%ModWebsite" as RichTextLabel
@@ -9,12 +10,10 @@ onready var _mod_description = $"%ModDescription" as RichTextLabel
 onready var _mod_dependency_container = $"%DependecyContainer" as VBoxContainer
 onready var _mod_dependencies = $"%ModDependencies" as RichTextLabel
 
-onready var Colors = get_node("/root/ModLoader/otDan-BetterModList/Colors")
-
 var mod_style
 
 
-func _ready()->void:
+func _ready() -> void:
 	set_empty()
 
 	var style = get_stylebox("panel")
@@ -22,7 +21,7 @@ func _ready()->void:
 	add_stylebox_override("panel", mod_style)
 
 
-func set_data(mod:ModData)->void:
+func set_data(mod: ModData) -> void:
 	_mod_name.text = mod.manifest.name
 	_mod_author.text = str(mod.manifest.authors)
 	var url = mod.manifest.website_url
@@ -60,7 +59,7 @@ func set_data(mod:ModData)->void:
 		mod_style.bg_color = Color(Colors.loaded)
 
 
-func set_empty()->void:
+func set_empty() -> void:
 	_mod_name.text = ""
 	_mod_author.text = ""
 	_mod_website.bbcode_text = ""
@@ -70,5 +69,5 @@ func set_empty()->void:
 	_mod_dependency_container.visible = false
 
 
-func _on_ModWebsite_meta_clicked(meta):
+func _on_ModWebsite_meta_clicked(meta: String):
 	var _output = OS.shell_open(str("https://", meta))

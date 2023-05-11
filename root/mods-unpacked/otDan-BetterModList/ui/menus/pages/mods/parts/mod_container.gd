@@ -8,7 +8,6 @@ var mod_data:ModData
 var mod_style
 
 onready var Colors = get_node("/root/ModLoader/otDan-BetterModList/Colors")
-
 onready var mod_name_button: Button = $"%ModNameButton"
 
 
