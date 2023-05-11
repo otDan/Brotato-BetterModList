@@ -77,7 +77,7 @@ func add_authors():
 	for author in authors_dictionary:
 		var instance: CheckBox = mod_author_toggle.instance()
 		instance.name = author
-		instance.connect("author_toggled", self, "on_author_toggled")
+		var _author_toggled = instance.connect("author_toggled", self, "on_author_toggled")
 		_author_container.add_child(instance)
 
 		instance.focus_neighbour_left = _back_button.get_path()
