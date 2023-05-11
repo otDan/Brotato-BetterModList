@@ -13,12 +13,14 @@ onready var Colors = get_node("/root/ModLoader/otDan-BetterModList/Colors")
 
 var mod_style
 
+
 func _ready()->void:
 	set_empty()
 
 	var style = get_stylebox("panel")
 	mod_style = style.duplicate()
 	add_stylebox_override("panel", mod_style)
+
 
 func set_data(mod:ModData)->void:
 	_mod_name.text = mod.manifest.name
@@ -32,10 +34,10 @@ func set_data(mod:ModData)->void:
 
 	var missing_dependency: bool = false
 	if not PoolStringArray(mod.manifest.dependencies).empty():
-		var dependencies: PoolStringArray
+		var dependencies: PoolStringArray = []
 
 		for dependency in mod.manifest.dependencies:
-			var string_dependency: String
+			var string_dependency: String = ""
 
 			if ModLoader.mod_data.has(dependency):
 				string_dependency += "[color=" + Colors.loaded + "]"
@@ -57,6 +59,7 @@ func set_data(mod:ModData)->void:
 	else:
 		mod_style.bg_color = Color(Colors.loaded)
 
+
 func set_empty()->void:
 	_mod_name.text = ""
 	_mod_author.text = ""
@@ -66,6 +69,6 @@ func set_empty()->void:
 	_mod_dependencies.text = ""
 	_mod_dependency_container.visible = false
 
+
 func _on_ModWebsite_meta_clicked(meta):
-	OS.shell_open(meta)
-	pass # Replace with function body.
+	var _output = OS.shell_open(str("https://", meta))
