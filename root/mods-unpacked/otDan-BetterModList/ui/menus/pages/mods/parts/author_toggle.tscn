@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://resources/fonts/actual/base/font_small_button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/parts/author_toggle.gd" type="Script" id=2]
-[ext_resource path="res://mods-unpacked/otDan-BetterModList/resources/themes/bettermodlist-mod_menu_theme.theme" type="Theme" id=3]
 
 [node name="AuthorToggle" type="CheckBox"]
 unique_name_in_owner = true
-theme = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 custom_constants/hseparation = 28

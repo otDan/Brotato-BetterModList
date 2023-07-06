@@ -8,7 +8,7 @@
 [ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/parts/mod_container.tscn" type="PackedScene" id=6]
 [ext_resource path="res://mods-unpacked/otDan-BetterModList/ui/menus/pages/mods/parts/author_toggle.tscn" type="PackedScene" id=7]
 [ext_resource path="res://resources/fonts/actual/base/font_menus.tres" type="DynamicFont" id=8]
-[ext_resource path="res://mods-unpacked/otDan-BetterModList/resources/themes/bettermodlist-mod_menu_theme.theme" type="Theme" id=9]
+[ext_resource path="res://mods-unpacked/otDan-SharedResources/resources/themes/sharedresources-shared_theme.theme" type="Theme" id=9]
 [ext_resource path="res://items/global/info.png" type="Texture" id=10]
 
 [node name="BetterMenuMods" type="MarginContainer"]
@@ -25,42 +25,54 @@ script = ExtResource( 3 )
 mod_container_scene = ExtResource( 6 )
 mod_author_toggle = ExtResource( 7 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 45.0
-margin_top = 45.0
-margin_right = 1875.0
-margin_bottom = 1035.0
-alignment = 1
-
-[node name="Label" type="Label" parent="HBoxContainer"]
-margin_right = 1830.0
-margin_bottom = 990.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 2 )
-text = "MENU_MODS"
-align = 1
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 45.0
 margin_top = 45.0
 margin_right = 1875.0
 margin_bottom = 1035.0
+theme = ExtResource( 9 )
 custom_constants/separation = 40
 alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="MenuTitle" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 1830.0
 margin_bottom = 120.0
-alignment = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 1356.0
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MenuTitle"]
+margin_right = 607.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MenuTitle"]
+margin_left = 730.0
+margin_top = 23.0
+margin_right = 1099.0
+margin_bottom = 96.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/MenuTitle/HBoxContainer"]
+margin_right = 369.0
+margin_bottom = 73.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 2 )
+text = "MENU_MODS"
+align = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MenuTitle"]
+margin_left = 1222.0
 margin_right = 1830.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MenuTitle/MarginContainer2"]
+margin_left = 134.0
+margin_right = 608.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MenuTitle/MarginContainer2/PanelContainer"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 469.0
@@ -70,14 +82,14 @@ custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MenuTitle/MarginContainer2/PanelContainer/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 456.0
 margin_bottom = 102.0
 alignment = 1
 
-[node name="LoadedModCount" type="Label" parent="VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="LoadedModCount" type="Label" parent="VBoxContainer/MenuTitle/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_right = 448.0
 margin_bottom = 45.0
@@ -86,7 +98,7 @@ text = "LOADED_MOD_COUNT"
 align = 1
 valign = 1
 
-[node name="DisabledModCount" type="Label" parent="VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="DisabledModCount" type="Label" parent="VBoxContainer/MenuTitle/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 49.0
 margin_right = 448.0
@@ -132,7 +144,6 @@ margin_bottom = 627.0
 margin_right = 326.0
 margin_bottom = 45.0
 hint_tooltip = "Show only the mods of the specific author in the mod list. (This does not disable mods)"
-theme = ExtResource( 9 )
 custom_constants/separation = 8
 alignment = 1
 
@@ -164,8 +175,10 @@ scroll_horizontal_enabled = false
 
 [node name="AuthorContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/AuthorPanel/MarginContainer/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
-margin_right = 326.0
-margin_bottom = 570.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 318.0
+margin_bottom = 562.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -200,7 +213,10 @@ scroll_horizontal_enabled = false
 
 [node name="ModListContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ModPanel/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
-margin_right = 688.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 680.0
+margin_bottom = 8.0
 size_flags_horizontal = 3
 
 [node name="ModInfoContainer" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
