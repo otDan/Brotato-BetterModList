@@ -4,17 +4,15 @@ extends Node
 const MOD_NAME = "otDan-BetterModList"
 
 
-var mod_loader
 var dir = ""
 var translations_dir = ""
 var extensions_dir = ""
 
 
-func _init(_mod_loader = ModLoader):
+func _init(_mod_loader):
 	ModLoaderUtils.log_info("Init", MOD_NAME)
-	mod_loader = _mod_loader
 
-	dir = mod_loader.UNPACKED_DIR + MOD_NAME + "/"
+	dir = ModLoaderMod.get_unpacked_dir() + MOD_NAME + "/"
 	translations_dir = dir + "translations/"
 	extensions_dir = dir + "extensions/"
 
@@ -27,14 +25,14 @@ func _ready():
 	ModLoaderUtils.log_success("Loaded", MOD_NAME)
 
 
-func _install_translations()->void:
-	mod_loader.add_translation_from_resource(translations_dir + "bettermodlist-translation.en.translation") # English
-	mod_loader.add_translation_from_resource(translations_dir + "bettermodlist-translation.it_IT.translation") # Italian
-	mod_loader.add_translation_from_resource(translations_dir + "bettermodlist-translation.pl_PL.translation") # Polish
+func _install_translations() -> void:
+	ModLoaderMod.add_translation(translations_dir + "bettermodlist-translation.en.translation") # English
+	ModLoaderMod.add_translation(translations_dir + "bettermodlist-translation.it_IT.translation") # Italian
+	ModLoaderMod.add_translation(translations_dir + "bettermodlist-translation.pl_PL.translation") # Polish
 
 
 func _install_script_extensions():
-	mod_loader.install_script_extension(extensions_dir + "ui/menus/title_screen/title_screen_menus.gd")
+	ModLoaderMod.install_script_extension(extensions_dir + "ui/menus/title_screen/title_screen_menus.gd")
 
 
 func _add_child_classes():
