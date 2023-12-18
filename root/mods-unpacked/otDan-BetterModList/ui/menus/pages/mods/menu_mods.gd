@@ -11,12 +11,15 @@ var authors_dictionary: Dictionary
 onready var author_panel = $"%AuthorPanel"
 onready var author_container = author_panel.get_node("%ModContainer")
 onready var mod_list_container = $"%ModListContainer"
+
 onready var mod_info_container = $"%ModInfoContainer"
+onready var show_logs_button = mod_info_container.get_node("%ShowLogsButton")
+
 onready var mod_loaded_count_label = $"%LoadedModCount"
+onready var mod_warning_count_label = $"%WarningModCount"
 onready var mod_disabled_count_label = $"%DisabledModCount"
 onready var _workshop_button = $"%WorkshopButton"
 onready var _back_button = $"%BackButton"
-
 
 
 func init():
@@ -30,6 +33,7 @@ func _ready() -> void:
 		n.queue_free()
 
 	var loaded_mod_count = 0
+	var warning_mod_count = 0
 	var error_mod_count = 0
 
 	var first_mod: Button = null
@@ -55,7 +59,7 @@ func _ready() -> void:
 			error_mod_count += 1
 
 		var mod_name_button: Button = instance.get_node("%ModNameButton")
-		mod_name_button.focus_neighbour_right = _back_button.get_path()
+		mod_name_button.focus_neighbour_right = show_logs_button.get_path()
 		if not last_mod == null:
 			last_mod.focus_neighbour_bottom = mod_name_button.get_path()
 			mod_name_button.focus_neighbour_top = last_mod.get_path()
@@ -72,6 +76,7 @@ func _ready() -> void:
 	add_authors()
 
 	mod_loaded_count_label.text = "Loaded: " + str(loaded_mod_count)
+	mod_warning_count_label.text = "Warning: " + str(warning_mod_count)
 	mod_disabled_count_label.text = "Disabled: " + str(error_mod_count)
 
 
@@ -80,7 +85,7 @@ func add_authors():
 	var last_author: CheckBox = null
 	for author in authors_dictionary:
 		var instance: CheckBox = mod_author_toggle.instance()
-		var _author_toggled = instance.connect("author_toggled", self, "on_author_toggled")
+		var _author_toggled = instance.connect("value_toggled", self, "on_value_toggled")
 		author_container.add_child(instance)
 		
 		var mod_count = 0
@@ -114,7 +119,7 @@ func sort_nodes(node: Node, sort_type: String):
 
 func on_mod_focused(mod: ModData) -> void:
 	mod_info_container.set_data(mod)
-
+	
 
 func on_mod_unfocused(_mod: ModData) -> void:
 	mod_info_container.set_empty()
