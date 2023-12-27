@@ -22,7 +22,14 @@ func _init(_mod_loader):
 
 
 func _ready():
+	var ListData = get_node("/root/ModLoader/otDan-BetterModList/ListData")
+	
+	ListData.load_mods()
 	ModLoaderUtils.log_success("Loaded", MOD_NAME)
+	
+
+func _disable():
+	pass
 
 
 func _install_translations() -> void:
@@ -36,6 +43,10 @@ func _install_script_extensions():
 
 
 func _add_child_classes():
+	var ListData = load(dir + "global/list_data.gd").new()
+	ListData.name = "ListData"
+	add_child(ListData)
+	
 	var Colors = load(dir + "global/colors.gd").new()
 	Colors.name = "Colors"
 	add_child(Colors)
