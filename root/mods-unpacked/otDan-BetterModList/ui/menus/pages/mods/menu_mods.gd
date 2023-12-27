@@ -6,6 +6,8 @@ signal back_button_pressed
 export (PackedScene) var mod_container_scene
 export (PackedScene) var mod_author_toggle
 
+onready var ListData = get_node("/root/ModLoader/otDan-BetterModList/ListData")
+
 var authors_dictionary: Dictionary
 
 onready var author_panel = $"%AuthorPanel"
@@ -32,10 +34,10 @@ func _ready() -> void:
 		mod_list_container.remove_child(n)
 		n.queue_free()
 
-	var loaded_mod_count = 0
-	var warning_mod_count = 0
-	var error_mod_count = 0
-
+	var loaded_mod_count = ListData.loaded
+	var warning_mod_count = ListData.warning
+	var error_mod_count = ListData.disabled
+	
 	var first_mod: Button = null
 	var last_mod: Button = null
 	var mod_data_all = ModLoaderMod.get_mod_data_all()
@@ -52,13 +54,10 @@ func _ready() -> void:
 			if not authors_dictionary.has(author):
 				authors_dictionary[author] = []
 			authors_dictionary[author].append(instance)
-
-		if mod_data.is_loadable:
-			loaded_mod_count += 1
-		else:
-			error_mod_count += 1
-
-		var mod_name_button: Button = instance.get_node("%ModNameButton")
+	sort_nodes(mod_list_container, "sort")
+	
+	for node in mod_list_container.get_children():
+		var mod_name_button: Button = node.get_node("%ModNameButton")
 		mod_name_button.focus_neighbour_right = show_logs_button.get_path()
 		if not last_mod == null:
 			last_mod.focus_neighbour_bottom = mod_name_button.get_path()
@@ -66,9 +65,9 @@ func _ready() -> void:
 		if first_mod == null:
 			first_mod = mod_name_button
 		last_mod = mod_name_button
+		
 	last_mod.focus_neighbour_bottom = first_mod.get_path()
 	first_mod.focus_neighbour_top = last_mod.get_path()
-	sort_nodes(mod_list_container, "sort")
 
 	_back_button.focus_neighbour_left = mod_info_container.get_child(0).get_path()
 	_workshop_button.focus_neighbour_left = mod_info_container.get_child(0).get_path()
@@ -85,7 +84,7 @@ func add_authors():
 	var last_author: CheckBox = null
 	for author in authors_dictionary:
 		var instance: CheckBox = mod_author_toggle.instance()
-		var _author_toggled = instance.connect("value_toggled", self, "on_value_toggled")
+		var _author_toggled = instance.connect("value_toggled", self, "on_author_toggled")
 		author_container.add_child(instance)
 		
 		var mod_count = 0
