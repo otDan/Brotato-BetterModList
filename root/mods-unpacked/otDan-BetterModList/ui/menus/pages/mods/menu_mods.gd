@@ -12,6 +12,7 @@ var authors_dictionary: Dictionary
 
 onready var author_panel = $"%AuthorPanel"
 onready var author_container = author_panel.get_node("%ModContainer")
+onready var toggle_all_button = author_panel.get_node("%ToggleAllButton")
 onready var mod_list_container = $"%ModListContainer"
 
 onready var mod_info_container = $"%ModInfoContainer"
@@ -23,10 +24,11 @@ onready var mod_disabled_count_label = $"%DisabledModCount"
 onready var _workshop_button = $"%WorkshopButton"
 onready var _back_button = $"%BackButton"
 
+var toggle_all_state = true
+
 
 func init():
 	_back_button.grab_focus()
-	pass
 
 
 func _ready() -> void:
@@ -75,7 +77,7 @@ func _ready() -> void:
 	add_authors()
 
 	mod_loaded_count_label.text = "Loaded: " + str(loaded_mod_count)
-	mod_warning_count_label.text = "Warning: " + str(warning_mod_count)
+	mod_warning_count_label.text = "Warned: " + str(warning_mod_count)
 	mod_disabled_count_label.text = "Disabled: " + str(error_mod_count)
 
 
@@ -91,6 +93,7 @@ func add_authors():
 		if authors_dictionary.has(author):
 			mod_count = authors_dictionary[author].size()
 		instance.set_info(author, mod_count)
+		instance.name = author
 
 		instance.focus_neighbour_left = _back_button.get_path()
 		if not last_author == null:
@@ -125,10 +128,24 @@ func on_mod_unfocused(_mod: ModData) -> void:
 
 
 func on_author_toggled(author_check, state) -> void:
-	for author in authors_dictionary:
-		if author == author_check:
-			for mod in authors_dictionary[author]:
-				mod.visible = state
+	print("author check: ", author_check)	
+	
+	for author_name in authors_dictionary:
+		var is_author = author_name == author_check
+		var author_change = state
+		for mod_node in authors_dictionary[author_name]:
+			if Input.is_key_pressed(KEY_SHIFT):
+				author_change = is_author
+			mod_node.visible = author_change
+		set_author(author_name, author_change)
+				
+				
+func set_author(author_name: String, value: bool) -> void:
+	for author_toggle in author_container.get_children():
+		print("author: ", author_name, " looping_author: ", author_toggle.name)
+		if author_toggle.name == author_name:
+			author_toggle.set_pressed_no_signal(value)
+		return
 
 
 func _on_BackButton_pressed() -> void:
@@ -139,3 +156,9 @@ func _on_WorkshopButton_pressed() -> void:
 	if ClassDB.class_exists("Steam"):
 		var steam = ClassDB.instance("Steam")
 		steam.activateGameOverlayToWebPage("https://steamcommunity.com/app/1942280/workshop/")
+
+
+func _on_ToggleAllButton_pressed():
+	for author in author_container.get_children():
+		author.pressed = !toggle_all_state
+	toggle_all_state = !toggle_all_state

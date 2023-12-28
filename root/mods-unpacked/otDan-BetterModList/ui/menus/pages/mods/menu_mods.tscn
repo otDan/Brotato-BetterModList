@@ -111,6 +111,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 302.0
 margin_bottom = 109.0
+size_flags_horizontal = 5
 alignment = 1
 
 [node name="LoadedModCount" type="Label" parent="VBoxContainer/MenuTitle/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
@@ -191,18 +192,23 @@ margin_bottom = 45.0
 [node name="ScrollContainer" parent="VBoxContainer/HBoxContainer/AuthorPanel/MarginContainer/VBoxContainer" index="1"]
 margin_top = 49.0
 margin_right = 326.0
-margin_bottom = 612.0
+margin_bottom = 564.0
 
 [node name="MarginContainer" parent="VBoxContainer/HBoxContainer/AuthorPanel/MarginContainer/VBoxContainer/ScrollContainer" index="0"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 318.0
-margin_bottom = 555.0
+margin_bottom = 507.0
 custom_constants/margin_right = 20
 
 [node name="ModContainer" parent="VBoxContainer/HBoxContainer/AuthorPanel/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer" index="0"]
 margin_right = 290.0
-margin_bottom = 547.0
+margin_bottom = 499.0
+
+[node name="ToggleAllButton" parent="VBoxContainer/HBoxContainer/AuthorPanel/MarginContainer/VBoxContainer" index="2"]
+margin_top = 568.0
+margin_right = 326.0
+margin_bottom = 612.0
 
 [node name="AuthorPanelOld" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 visible = false
@@ -345,6 +351,7 @@ focus_neighbour_top = NodePath("../WorkshopButton")
 focus_neighbour_bottom = NodePath("../WorkshopButton")
 text = "MENU_BACK"
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/AuthorPanel/MarginContainer/VBoxContainer/ToggleAllButton" to="." method="_on_ToggleAllButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/WorkshopButton" to="." method="_on_WorkshopButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/BackButton" to="." method="_on_BackButton_pressed"]
 
